@@ -1,9 +1,4 @@
 #include "core/Game.hpp"
-#include "raylib.h"
-#include "scenes/MenuScene.hpp"
-#include <iostream>
-
-using namespace std;
 
 const struct {
   int width = 800;
@@ -11,17 +6,8 @@ const struct {
 } windowScreen;
 
 int main() {
-  InitWindow(windowScreen.width, windowScreen.height, "Hello, warrior!");
-  SetTargetFPS(60);
-  Texture2D background = LoadTexture("assets/background.png");
-  // Game loop
-  while (!WindowShouldClose()) {
-    BeginDrawing();
-    ClearBackground(BLACK);
-    DrawTexture(background, 0, 0, WHITE);
-    UnloadTexture(background);
-    EndDrawing();
-  }
-
-  CloseWindow();
+  // Game owns the window, audio device and scene stack (starts on MenuScene)
+  Game game(windowScreen.width, windowScreen.height,
+            "raylib-cpp-game-template");
+  game.run();
 }
