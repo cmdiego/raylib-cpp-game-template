@@ -2,11 +2,14 @@
 
 void MenuScene::onEnter() {
   // load assets, init UI
-  bgTexture_ = TextureRAII("assets/textures/kbwarrior_background.png");
-  // fontTexture_ = FontTextureRAII("assets/fonts/kbwarrior_title.png")
+  bgTexture_ = TextureRAII("assets/textures/menu_background.png");
+  titleFont_ = FontRAII("assets/fonts/title_font.png");
+  bgMusic_ = MusicRAII("assets/music/menu_music.wav");
 }
 
-void MenuScene::onExit() {}
+void MenuScene::onExit() {
+  // nothing to do here... yet
+}
 
 void MenuScene::handleInput() {
   if (IsKeyPressed(KEY_ENTER)) {
@@ -26,6 +29,10 @@ void MenuScene::render() {
 
   if (bgTexture_.valid()) {
     DrawTexture(bgTexture_.get(), 0, 0, WHITE);
+  }
+
+  if (bgMusic_.valid()) {
+    PlayMusicStream(bgMusic_.get());
   }
 
   if (titleFont_.valid()) {

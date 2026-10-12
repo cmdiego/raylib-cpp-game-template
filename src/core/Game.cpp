@@ -1,15 +1,33 @@
+/*
+Game::run()
+   └─ SceneManager.top() = MenuScene
+       ├─ onEnter() → LoadTexture + LoadMusic + LoadFont
+       ├─ update(dt) → bgMusic_.update()
+       ├─ render()   → DrawTexture / DrawTextEx
+       └─ onExit()   → (optional StopMusic)
+Scene popped
+   └─ ~MenuScene()
+        ├─ ~TextureRAII() → UnloadTexture
+        ├─ ~MusicRAII()   → UnloadMusicStream
+        └─ ~FontRAII()    → UnloadFont
+*/
 #include "core/Game.hpp"
 #include "raylib.h"
+#include "scenes/MenuScene.hpp"
 
 // Constructor: initialize window + timing
 Game::Game(int w, int h, const char *title) {
   width_ = w;
   height_ = h;
+  InitAudioDevice();
 
   // Basic window config (tweak as needed)
   SetConfigFlags(FLAG_VSYNC_HINT); // reduces tearing; optional
   InitWindow(w, h, title);
   SetTargetFPS(60);
+
+  // Init Menu on SceneManager
+  scenes().push(std::make_unique<MenuScene>());
 }
 
 // Destructor: orderly shutdown
