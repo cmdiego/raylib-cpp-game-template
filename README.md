@@ -1,4 +1,4 @@
-# KbWarrior
+# raylib-cpp-game-template
 
 # Cloning the project
 ```bash
@@ -59,7 +59,7 @@ Follow these steps to configure and compile the project.
 ## 5. Run the Executable
    - The compiled game will be inside:
      ```
-     ./build/bin/KbWarrior
+     ./build/bin/raylib-cpp-game-template
      ```
 
 ## 6. Optional: Use Bash Helper Scripts
@@ -72,7 +72,7 @@ Follow these steps to configure and compile the project.
 
 ## Files
 
-KbWarrior/
+raylib-cpp-game-template/
 ├── assets/              # images, sounds, fonts, etc.
 ├── include/             # headers (Game, Scene, etc.)
 |   ├── core/            # core headers

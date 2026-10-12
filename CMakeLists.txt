@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(KbWarrior LANGUAGES CXX)
+project(raylib-cpp-game-template LANGUAGES CXX)
 
 # C++ standard
 set(CMAKE_CXX_STANDARD 20)
@@ -14,10 +14,10 @@ else()
 endif()
 
 # Source files
-file(GLOB_RECURSE KBW_SOURCES "${CMAKE_SOURCE_DIR}/src/*.cpp")
-file(GLOB_RECURSE KBW_HEADERS "${CMAKE_SOURCE_DIR}/include/*.hpp")
+file(GLOB_RECURSE GAME_SOURCES "${CMAKE_SOURCE_DIR}/src/*.cpp")
+file(GLOB_RECURSE GAME_HEADERS "${CMAKE_SOURCE_DIR}/include/*.hpp")
 
-add_executable(${PROJECT_NAME} ${KBW_SOURCES} ${KBW_HEADERS})
+add_executable(${PROJECT_NAME} ${GAME_SOURCES} ${GAME_HEADERS})
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/include")
 
 # --- Raylib ---

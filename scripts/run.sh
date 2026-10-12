@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 set -euo pipefail
-"./build/bin/kbwarrior"
+"./build/bin/raylib-cpp-game-template"
