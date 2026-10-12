@@ -35,6 +35,11 @@ Game::~Game() {
   // Ensure scenes exit in LIFO order; calls onExit() for each
   this->scenes().clear();
 
+  // Scenes (and their music/sounds) are gone, so the audio device can close
+  if (IsAudioDeviceReady()) {
+    CloseAudioDevice();
+  }
+
   // Close Raylib window/context
   if (IsWindowReady()) {
     CloseWindow();
